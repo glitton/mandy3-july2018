@@ -1,3 +1,5 @@
+// Keep reading this: https://css-tricks.com/gulp-for-beginners/
+
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var header = require("gulp-header");
