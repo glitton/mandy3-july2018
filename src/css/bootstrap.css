@@ -1,4 +1,3 @@
-
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -1124,7 +1123,6 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: auto;
 }
 .img-rounded {
   border-radius: 6px;
@@ -6445,11 +6443,11 @@ button.close {
   }
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .icon-prev {
-    margin-left: -60px;
+    margin-left: -10px;
   }
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-next {
-    margin-right: -60px;
+    margin-right: -10px;
   }
   .carousel-caption {
     right: 20%;

@@ -2,34 +2,47 @@
   "title": "Mandy Flowers",
   "name": "mandy-website-july2018",
   "version": "4.1.1",
-  "description":
-    "A casual HTML website theme for businesses built with Bootstrap",
-  "keywords": ["css", "sass", "html", "responsive", "theme", "template"],
+  "description": "A casual HTML website theme for businesses built with Bootstrap",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "responsive",
+    "theme",
+    "template"
+  ],
   "homepage": "https://startbootstrap.com/template-overviews/business-casual",
   "bugs": {
-    "url":
-      "https://github.com/BlackrockDigital/startbootstrap-business-casual/issues",
+    "url": "https://github.com/BlackrockDigital/startbootstrap-business-casual/issues",
     "email": "feedback@startbootstrap.com"
   },
   "license": "MIT",
   "author": "Start Bootstrap",
-  "contributors": ["David Miller (http://davidmiller.io/)"],
+  "contributors": [
+    "David Miller (http://davidmiller.io/)"
+  ],
   "repository": {
     "type": "git",
-    "url":
-      "git+https://github.com/BlackrockDigital/startbootstrap-business-casual.git"
+    "url": "git+https://github.com/BlackrockDigital/startbootstrap-business-casual.git"
   },
   "dependencies": {
     "bootstrap": "4.1.1",
-    "jquery": "3.3.1"
+    "jquery": "3.3.1",
+    "popper.js": "^1.14.3"
   },
   "devDependencies": {
-    "browser-sync": "2.24.3",
+    "browser-sync": "^2.24.5",
+    "clean-css": "^4.1.11",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "3.9.4",
+    "gulp-cache": "^1.0.2",
+    "gulp-clean-css": "^3.9.4",
     "gulp-header": "2.0.5",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "4.0.1"
+    "gulp-imagemin": "^4.1.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "imagemin-jpeg-recompress": "^5.1.0",
+    "imagemin-pngquant": "^5.1.0"
   },
   "main": "gulpfile.js",
   "scripts": {
