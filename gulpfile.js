@@ -14,7 +14,7 @@ gulp.task("cssMinify", function() {
     .src("src/css/*.css")
     .pipe(cleanCSS())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("public/css"))
+    .pipe(gulp.dest("./css"))
     .pipe(
       browserSync.reload({
         stream: true
@@ -28,7 +28,7 @@ gulp.task("jsMinify", function() {
     .src("src/js/*.js")
     .pipe(uglify())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("public/js"));
+    .pipe(gulp.dest("./js"));
 });
 
 // Optimize images
@@ -49,19 +49,19 @@ gulp.task("images", function() {
         ])
       )
     )
-    .pipe(gulp.dest("public/img"));
+    .pipe(gulp.dest("./img"));
 });
 
 // Move fonts from dev to prod
 gulp.task("fonts", function() {
-  return gulp.src("src/fonts/**/*").pipe(gulp.dest("public/fonts"));
+  return gulp.src("src/fonts/**/*").pipe(gulp.dest("./fonts"));
 });
 
 // Configure the browserSync task
 gulp.task("browserSync", function() {
   browserSync.init({
     server: {
-      baseDir: "public"
+      baseDir: "./"
     }
   });
 });
