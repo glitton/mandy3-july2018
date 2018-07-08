@@ -68,6 +68,6 @@ gulp.task("browserSync", function() {
 
 // Dev task
 gulp.task("dev", ["cssMinify", "browserSync"], function() {
-  gulp.watch("./css/*.css", ["css"]);
+  gulp.watch("src/css/*.css", ["css"]);
   gulp.watch("./*.html", browserSync.reload);
 });
