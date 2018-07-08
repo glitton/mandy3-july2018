@@ -160,24 +160,15 @@ a:active {
   color: #777;
 }
 
-.thumbs-up {
-  width: 5%;
-}
-
 /*Upcoming events*/
 .events {
   border: 4px solid black;
   background-color: white;
 }
-
-#perf-img {
+.perf-img {
   padding: 0;
 }
-
-#jazz-acoustic-bass,
-#sf-bay-area,
-#email,
-#voice {
+.jazz-acoustic-bass {
   margin: 0;
   padding: 0 0 5px;
   text-align: center;
@@ -185,26 +176,41 @@ a:active {
   font-weight: 400;
   letter-spacing: 3px;
   color: #000;
-}
-#jazz-acoustic-bass {
   font-size: 2.75em;
 }
-
-#sf-bay-area {
+.sf-bay-area {
+  margin: 0;
+  padding: 0 0 5px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #000;
   font-size: 2em;
 }
-
-#email {
-  font-size: 1.7em;
-  letter-spacing: 1px;
+.email {
+  margin: 0;
+  padding: 0 0 5px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #000;
+  font-size: 1.9em;
 }
-
 .voice {
-  font-size: 1.65em;
+  margin: 0;
+  padding: 0 0 5px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
   letter-spacing: 1px;
-  font-weight: bold;
+  color: #000;
 }
-
+/* thumbs-up */
+.svg-inline--fa.fa-w-16 {
+  width: 0.8em;
+}
 .brand-mandy {
   display: inherit;
   margin: 0;
