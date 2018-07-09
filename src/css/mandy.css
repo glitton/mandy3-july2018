@@ -209,8 +209,13 @@ a:active {
   font-size: 1.2em;
 }
 /* thumbs-up */
-.svg-inline--fa.fa-w-16 {
-  width: 0.8em;
+/* .svg-inline--fa.fa-w-16 {
+  width: 1em;
+} */
+.like {
+  width: 1em;
+  position: relative;
+  bottom: 3px;
 }
 .brand-mandy {
   display: inherit;
