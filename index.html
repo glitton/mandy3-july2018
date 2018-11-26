@@ -163,31 +163,55 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
                         <!-- New Relic Alone Together script -->
                         <script>
                           document.getElementById("alone").addEventListener("click", function(evt) {
-                            newrelic.addPageAction("clickedAloneTogether");
+                            newrelic.addPageAction("clickedAloneTogetherVideo");
                           })
                         </script>
                       </div>
                       <div class="side-by-side">
-                        <a href="#rainy" class="launch-modal" data-modal-id="modal-video-rainy">
+                        <a href="#rainy" class="launch-modal" id="rain" data-modal-id="modal-video-rainy">
                           Here's That Rainy Day
                         </a>
+                        <!-- New Relic Rainy day script -->
+                        <script>
+                          document.getElementById("rain").addEventListener("click", function(evt) {
+                            newrelic.addPageAction("clickedRainyDayVideo");
+                          })
+                        </script>
                       </div>
                   <!-- Audio Clips -->
                     <h3 class="title-text">Audio Clips</h3>
                       <div class="side-by-side">
-                        <a href="#modal-ornithology" class="launch-modal" data-modal-id="modal-ornithology">
+                        <a href="#modal-ornithology" class="launch-modal" id="ornithology" data-modal-id="modal-ornithology">
                           Ornithology
                         </a>
+                        <!-- New Relic Ornithology script -->
+                        <script>
+                          document.getElementById("ornithology").addEventListener("click", function(evt) {
+                            newrelic.addPageAction("clickedOrnithologyAudio");
+                          })
+                        </script>
                       </div>
                       <div class="side-by-side">
-                        <a href="#modal-stolen" class="launch-modal" data-modal-id="modal-stolen">
+                        <a href="#modal-stolen" class="launch-modal" id="stolen" data-modal-id="modal-stolen">
                           Stolen Moments
                         </a>
+                        <!-- New Relic Stolen Moments script -->
+                        <script>
+                          document.getElementById("stolen").addEventListener("click", function(evt) {
+                            newrelic.addPageAction("clickedStolenMomentsAudio");
+                          })
+                        </script>
                       </div>
                       <div class="side-by-side">
-                        <a href="#modal-free" class="launch-modal" data-modal-id="modal-free">
+                        <a href="#modal-free" class="launch-modal" id="free" data-modal-id="modal-free">
                           Free Peace
                         </a>
+                        <!-- New Relic Free Peace script -->
+                        <script>
+                          document.getElementById("free").addEventListener("click", function(evt) {
+                            newrelic.addPageAction("clickedFreePeaceAudio");
+                          })
+                        </script>
                       </div>
                   </div>
                   <div class="col-xs-12 col-lg-12">
@@ -199,7 +223,14 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
                     <img class="img-responsive img-border img-left" src="img/cd_cover.gif" alt="reflections-cd-cover">
                     <hr class="visible-xs">
                     <p><strong>"<u>Reflections</u>"</strong> is a one-hour CD of jazz standards and original compositions featuring Alex Murzyn on sax and Noel Melanio on piano. This instrumental collection thoughtfully illuminates styles from bebop to free, to bossa nova and ballad.</p>
-                    <p>Read the <a href="#modal-article" class="launch-modal" data-modal-id="modal-article">review</a>
+                    <p>Read the
+                      <a href="#modal-article" class="launch-modal" id="reflections" data-modal-id="modal-article">review</a>
+                      <!-- New Relic Reflections article script -->
+                      <script>
+                        document.getElementById("reflections").addEventListener("click", function(evt) {
+                          newrelic.addPageAction("clickedReflectionsArticle");
+                        })
+                      </script>
                     from Jazz Improv Magazine, Vol. 3 No. 2.
                     </p>
                   </div>
@@ -298,7 +329,15 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
                     </p>
                     <h3 class="title-text text-left">Background</h3>
                     <p>Mandy is a Summa Cum Laude graduate of Berklee College of Music in Boston. She studied privately with Charlie Haden and Darek Oles for two years at Cal Arts, and bass grandmaster Ray Brown for seven years.</p>
-                    <p>See my Farewell to Ray Brown <a href="#modal-raybrown" class="launch-modal" data-modal-id="modal-raybrown">article</a> from Jazz Steps.
+                    <p>See my Farewell to Ray Brown
+                      <a href="#modal-raybrown" class="launch-modal" id="ray" data-modal-id="modal-raybrown">article</a>
+                      <!-- New Relic Reflections article script -->
+                      <script>
+                        document.getElementById("ray").addEventListener("click", function(evt) {
+                          newrelic.addPageAction("clickedRayBrownArticle");
+                        })
+                      </script>
+                      from Jazz Steps.
                     </p>
                 </div>
             </div>
