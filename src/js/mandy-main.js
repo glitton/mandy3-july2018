@@ -107,8 +107,8 @@ $(document).ready(function() {
       var traceData = {name: name,
                        start: start};
 
-      addToTraceFacade(traceData);
-      setCustomAttributeFacade(name, timing/1000);
+      newrelic.addToTrace(traceData);
+      newrelic.setCustomAttribute(name, timing/1000);
     };
 
     // Flush any pre-existing performance marks
