@@ -76,4 +76,59 @@ $(document).ready(function() {
 
   // Set default volume of audio to match video
   document.getElementById("audioStolen").volume = 0.1;
+
+
+/////////////////////////////////////
+// User Timing -> New Relic Browser Polyfill
+/////////////////////////////////////
+
+/**
+ * Adds user timing marks to:
+ *   - New Relic Browser session traces
+ *   - New Relic PageView event (as a custom attribute)
+ * usage:
+ *   performance.mark('eventName');
+ * Clay Smith, 8/15/17
+*/
+
+(function(window) {
+    var performance = window.performance || {};
+    if (!performance.mark) {
+      return; // W3C User Timing API not supported
+    }
+
+    var sendToNewRelic = function(name, timing) {
+      if (typeof newrelic !== 'object') {
+        return;
+      }
+      // addToTraceFacade expects time relative to unix epoch
+      // workaround: addToTraceFacade only accepts integers or 500s
+      var start = Math.round(performance.timing.navigationStart + timing, 0);
+      var traceData = {name: name,
+                       start: start};
+
+      addToTraceFacade(traceData);
+      setCustomAttributeFacade(name, timing/1000);
+    };
+
+    // Flush any pre-existing performance marks
+    var marks = performance.getEntriesByType('mark');
+    for (var i = 0; i < marks.length; i++) {
+      sendToNewRelic(marks[i].name, marks[i].startTime);
+    }
+
+    var originalMark = performance.mark;
+    performance.mark = function() {
+      var now = Date.now();
+      var args = [].slice.call(arguments, 0);
+      // Add mark to trace
+      if (args.length > 0 && window.newrelic) {
+        var traceData = {name: args[0], start: now};
+        sendToNewRelic(args[0], now - performance.timing.navigationStart)
+      }
+
+      return originalMark.apply(this, args);
+    }
+    window.performance = performance;
+  })(window);
 });
