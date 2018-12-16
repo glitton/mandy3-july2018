@@ -32,9 +32,9 @@ $(document).ready(function() {
   // Stops YouTube video when modal window is closed
   // Alone Together
   $(".close-alone").on("click", function() {
-    var video = $(".alone").attr("src");
+    var aloneTogether = $(".alone").attr("src");
     $(".alone").attr("src", "");
-    $(".alone").attr("src", video);
+    $(".alone").attr("src", aloneTogether);
   });
   // Rainy Day
   $(".close-rainy").on("click", function() {
