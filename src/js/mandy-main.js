@@ -42,6 +42,12 @@ $(document).ready(function() {
     $(".rainy").attr("src", "");
     $(".rainy").attr("src", rainyDay);
   });
+  // How Insensitive
+  $(".close-how-insensitive").on("click", function() {
+    var howInsensitive = $(".how-insensitive").attr("src");
+    $(".how-insensitive").attr("src", "");
+    $(".how-insensitive").attr("src", howInsensitive);
+  });
 
   // Turns off audio when modal window is closed
   // Ornithology
@@ -77,42 +83,42 @@ $(document).ready(function() {
   // Set default volume of audio to match video
   document.getElementById("audioStolen").volume = 0.1;
 
+  /////////////////////////////////////
+  // User Timing -> New Relic Browser Polyfill
+  /////////////////////////////////////
 
-/////////////////////////////////////
-// User Timing -> New Relic Browser Polyfill
-/////////////////////////////////////
+  /**
+   * Adds user timing marks to:
+   *   - New Relic Browser session traces
+   *   - New Relic PageView event (as a custom attribute)
+   * usage:
+   *   performance.mark('eventName');
+   * Clay Smith, 8/15/17
+   */
 
-/**
- * Adds user timing marks to:
- *   - New Relic Browser session traces
- *   - New Relic PageView event (as a custom attribute)
- * usage:
- *   performance.mark('eventName');
- * Clay Smith, 8/15/17
-*/
-
-(function(window) {
+  (function(window) {
     var performance = window.performance || {};
     if (!performance.mark) {
       return; // W3C User Timing API not supported
     }
-
     var sendToNewRelic = function(name, timing) {
-      if (typeof newrelic !== 'object') {
+      if (typeof newrelic !== "object") {
         return;
       }
       // addToTraceFacade expects time relative to unix epoch
       // workaround: addToTraceFacade only accepts integers or 500s
       var start = Math.round(performance.timing.navigationStart + timing, 0);
-      var traceData = {name: name,
-                       start: start};
+      var traceData = {
+        name: name,
+        start: start
+      };
 
       newrelic.addToTrace(traceData);
-      newrelic.setCustomAttribute(name, timing/1000);
+      newrelic.setCustomAttribute(name, timing / 1000);
     };
 
     // Flush any pre-existing performance marks
-    var marks = performance.getEntriesByType('mark');
+    var marks = performance.getEntriesByType("mark");
     for (var i = 0; i < marks.length; i++) {
       sendToNewRelic(marks[i].name, marks[i].startTime);
     }
@@ -123,12 +129,12 @@ $(document).ready(function() {
       var args = [].slice.call(arguments, 0);
       // Add mark to trace
       if (args.length > 0 && window.newrelic) {
-        var traceData = {name: args[0], start: now};
-        sendToNewRelic(args[0], now - performance.timing.navigationStart)
+        var traceData = { name: args[0], start: now };
+        sendToNewRelic(args[0], now - performance.timing.navigationStart);
       }
 
       return originalMark.apply(this, args);
-    }
+    };
     window.performance = performance;
   })(window);
 });
