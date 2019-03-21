@@ -73,6 +73,7 @@
       function navBarLoaded() {
         const navOnLoadTime = performance.now();
         newrelic.setCustomAttribute("firstMeaningfulPaint", navOnLoadTime);
+        console.log("nav bar loaded " + navOnLoadTime);
       }
     </script>
     <!-- Navigation -->
