@@ -1033,6 +1033,13 @@
           performanceEntries.forEach((performanceEntry, i, entries) => {
             let to_seconds = performanceEntry.startTime / 1000;
             newrelic.setCustomAttribute(performanceEntry.name, to_seconds);
+            console.log(
+              "The time to " +
+                performanceEntry.name +
+                " was " +
+                performanceEntry.startTime +
+                " seconds."
+            );
           });
         } else {
           console.log("Performance timing isn't supported.");
