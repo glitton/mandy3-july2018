@@ -2,6 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Time to Interactive snippet -->
+    <script>
+      !(function() {
+        if ("PerformanceLongTaskTiming" in window) {
+          var g = (window.__tti = { e: [] });
+          g.o = new PerformanceObserver(function(l) {
+            g.e = g.e.concat(l.getEntries());
+          });
+          g.o.observe({ entryTypes: ["longtask"] });
+        }
+      })();
+    </script>
+    <!-- End of Time to Interactive snippet -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
@@ -31,19 +44,6 @@
       };
     </script>
     <!-- End New Relic Browser Snippet -->
-    <!-- Time to Interactive snippet -->
-    <script>
-      !(function() {
-        if ("PerformanceLongTaskTiming" in window) {
-          var g = (window.__tti = { e: [] });
-          g.o = new PerformanceObserver(function(l) {
-            g.e = g.e.concat(l.getEntries());
-          });
-          g.o.observe({ entryTypes: ["longtask"] });
-        }
-      })();
-    </script>
-    <!-- End of Time to Interactive snippet -->
     <title>Mandy Flowers Jazz Acoustic Bass</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -76,9 +76,11 @@
     <!-- Custom CSS -->
     <link href="css/mandy.min.css" rel="stylesheet" />
     <!-- Invoke TTI function -->
-    <script type="text/javascript" src="js/tti-polyfill.js">
-      ttiPolyfill.getFirstConsistentlyInteractive(opts).then((tti) => {
-        console.log('time to interactive is ' + tti)
+    <script type="text/javascript" src="js/tti-polyfill.js"></script>
+    <script>
+      ttiPolyfill.getFirstConsistentlyInteractive().then(console.log);
+      ttiPolyfill.getFirstConsistentlyInteractive().then(tti => {
+        console.log("time to interactive is " + tti / 1000);
       });
     </script>
   </head>
