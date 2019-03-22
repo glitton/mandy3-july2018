@@ -78,9 +78,10 @@
     <!-- Invoke TTI function -->
     <script type="text/javascript" src="js/tti-polyfill.js"></script>
     <script>
-      ttiPolyfill.getFirstConsistentlyInteractive().then(console.log);
       ttiPolyfill.getFirstConsistentlyInteractive().then(tti => {
-        console.log("time to interactive is " + tti / 1000);
+        let ttinteractive = tti / 1000;
+        console.log("time to interactive is " + ttinteractive);
+        newrelic.setCustomAttribute("time-to-interactive", ttinteractive);
       });
     </script>
   </head>
