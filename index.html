@@ -31,7 +31,6 @@
       };
     </script>
     <!-- End New Relic Browser Snippet -->
-
     <title>Mandy Flowers Jazz Acoustic Bass</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -64,8 +63,15 @@
     <!-- Custom CSS -->
     <link href="css/mandy.min.css" rel="stylesheet" />
   </head>
-
-  <body>
+  <!-- Capture first firstMeaningfulPaint which is the body tag -->
+  <script>
+    function startOfBody() {
+      const bodyOnloadTime = performance.now();
+      newrelic.setCustomAttribute("firstMeaningfulPaint", bodyOnloadTime);
+      // console.log("body tag loaded " + bodyOnloadTime);
+    }
+  </script>
+  <body onload="startOfBody()">
     <div class="brand">Mandy Flowers</div>
     <div class="address-bar"><i>Jazz Acoustic Bass</i></div>
     <!-- Navigation -->
@@ -97,7 +103,7 @@
             <li><a href="#performance">Performance</a></li>
             <li><a href="#teaching">Teaching</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact" onload="navBarLoaded()">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -1017,14 +1023,6 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- My JavaScript -->
     <script src="js/mandy-main.min.js"></script>
-    <!-- Capture first firstMeaningfulPaint which is the nav bar -->
-    <script>
-      function navBarLoaded() {
-        const navOnLoadTime = performance.now();
-        newrelic.setCustomAttribute("firstMeaningfulPaint", navOnLoadTime);
-        console.log("nav bar loaded " + navOnLoadTime);
-      }
-    </script>
     <!-- Paint timings -->
     <script>
       function showPaintTimings() {
@@ -1034,16 +1032,16 @@
           performanceEntries.forEach((performanceEntry, i, entries) => {
             let to_seconds = performanceEntry.startTime / 1000;
             newrelic.setCustomAttribute(performanceEntry.name, to_seconds);
-            console.log(
-              "The time to " +
-                performanceEntry.name +
-                " was " +
-                performanceEntry.startTime +
-                " seconds."
-            );
+            // console.log(
+            //   "The time to " +
+            //     performanceEntry.name +
+            //     " was " +
+            //     performanceEntry.startTime +
+            //     " seconds."
+            // );
           });
         } else {
-          console.log("Performance timing isn't supported.");
+          // console.log("Performance timing isn't supported.");
         }
       }
       showPaintTimings();
