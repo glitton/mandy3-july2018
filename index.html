@@ -31,6 +31,19 @@
       };
     </script>
     <!-- End New Relic Browser Snippet -->
+    <!-- Time to Interactive snippet -->
+    <script>
+      !(function() {
+        if ("PerformanceLongTaskTiming" in window) {
+          var g = (window.__tti = { e: [] });
+          g.o = new PerformanceObserver(function(l) {
+            g.e = g.e.concat(l.getEntries());
+          });
+          g.o.observe({ entryTypes: ["longtask"] });
+        }
+      })();
+    </script>
+    <!-- End of Time to Interactive snippet -->
     <title>Mandy Flowers Jazz Acoustic Bass</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -62,13 +75,19 @@
     />
     <!-- Custom CSS -->
     <link href="css/mandy.min.css" rel="stylesheet" />
+    <!-- Invoke TTI function -->
+    <script type="text/javascript" src="js/tti-polyfill.js">
+      ttiPolyfill.getFirstConsistentlyInteractive(opts).then((tti) => {
+        console.log('time to interactive is ' + tti)
+      });
+    </script>
   </head>
   <!-- Capture first firstMeaningfulPaint which is the body tag -->
   <script>
     function startOfBody() {
       const bodyOnloadTime = performance.now();
       newrelic.setCustomAttribute("firstMeaningfulPaint", bodyOnloadTime);
-      // console.log("body tag loaded " + bodyOnloadTime);
+      console.log("body tag loaded " + bodyOnloadTime);
     }
   </script>
   <body onload="startOfBody()">
@@ -1032,16 +1051,16 @@
           performanceEntries.forEach((performanceEntry, i, entries) => {
             let to_seconds = performanceEntry.startTime / 1000;
             newrelic.setCustomAttribute(performanceEntry.name, to_seconds);
-            // console.log(
-            //   "The time to " +
-            //     performanceEntry.name +
-            //     " was " +
-            //     performanceEntry.startTime +
-            //     " seconds."
-            // );
+            console.log(
+              "The time to " +
+                performanceEntry.name +
+                " was " +
+                performanceEntry.startTime +
+                " seconds."
+            );
           });
         } else {
-          // console.log("Performance timing isn't supported.");
+          console.log("Performance timing isn't supported.");
         }
       }
       showPaintTimings();
