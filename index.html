@@ -1,4 +1,4 @@
-<!-- Last update: June 9, 2019, changed both performance dates to August -->
+<!-- Last update: April 22, 2021, removed performance, NR scripts -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -228,14 +228,14 @@
             <div class="col-md-8 events text-center">
               <h3 class="title-text text-center">Upcoming Events</h3>
               <p>
-                <strong>Saturdays through August 2019</strong><br />
+                <strong>Saturdays through December 2019</strong><br />
                 Mandy Flowers Trio, 6-9pm, jazz standards, free admission,
                 <br />
                 Burlingame Doubletree Hotel, 835 Airport Blvd 94010,
                 (650)-344-5500
               </p>
               <p>
-                <strong>Thursdays through August 2019</strong><br />
+                <strong>Thursdays through December 2019</strong><br />
                 Larry St Lezin Duo/Trio, 7-9:30pm, jazz standards, free
                 admission, <br />
                 B Street and Vine, 320 S. B Street, San Mateo, 94401,
@@ -255,14 +255,6 @@
                 >
                   Alone Together
                 </a>
-                <!-- New Relic Alone Together script -->
-                <script>
-                  document
-                    .getElementById("alone")
-                    .addEventListener("click", function (evt) {
-                      newrelic.addPageAction("clickedAloneTogetherVideo");
-                    });
-                </script>
               </div>
               <div class="side-by-side">
                 <a
@@ -273,14 +265,6 @@
                 >
                   Here's That Rainy Day
                 </a>
-                <!-- New Relic Rainy day script -->
-                <script>
-                  document
-                    .getElementById("rain")
-                    .addEventListener("click", function (evt) {
-                      newrelic.addPageAction("clickedRainyDayVideo");
-                    });
-                </script>
               </div>
               <div class="side-by-side">
                 <a
@@ -291,14 +275,6 @@
                 >
                   How Insensitive
                 </a>
-                <!-- New Relic How Insensitive script -->
-                <script>
-                  document
-                    .getElementById("how-insensitive")
-                    .addEventListener("click", function (evt) {
-                      newrelic.addPageAction("clickedHowInsensitiveVideo");
-                    });
-                </script>
               </div>
               <!-- Audio Clips -->
               <h3 class="title-text">Audio Clips</h3>
@@ -311,14 +287,6 @@
                 >
                   Ornithology
                 </a>
-                <!-- New Relic Ornithology script -->
-                <script>
-                  document
-                    .getElementById("ornithology")
-                    .addEventListener("click", function (evt) {
-                      newrelic.addPageAction("clickedOrnithologyAudio");
-                    });
-                </script>
               </div>
               <div class="side-by-side">
                 <a
@@ -329,14 +297,6 @@
                 >
                   Stolen Moments
                 </a>
-                <!-- New Relic Stolen Moments script -->
-                <script>
-                  document
-                    .getElementById("stolen")
-                    .addEventListener("click", function (evt) {
-                      newrelic.addPageAction("clickedStolenMomentsAudio");
-                    });
-                </script>
               </div>
               <div class="side-by-side">
                 <a
@@ -347,14 +307,6 @@
                 >
                   Free Peace
                 </a>
-                <!-- New Relic Free Peace script -->
-                <script>
-                  document
-                    .getElementById("free")
-                    .addEventListener("click", function (evt) {
-                      newrelic.addPageAction("clickedFreePeaceAudio");
-                    });
-                </script>
               </div>
             </div>
             <div class="col-xs-12 col-lg-12">
@@ -397,14 +349,6 @@
                   data-modal-id="modal-article"
                   >review</a
                 >
-                <!-- New Relic Reflections article script -->
-                <script>
-                  document
-                    .getElementById("reflections")
-                    .addEventListener("click", function (evt) {
-                      newrelic.addPageAction("clickedReflectionsArticle");
-                    });
-                </script>
                 from Jazz Improv Magazine, Vol. 3 No. 2.
               </p>
             </div>
@@ -590,14 +534,6 @@
                 data-modal-id="modal-raybrown"
                 >article</a
               >
-              <!-- New Relic Reflections article script -->
-              <script>
-                document
-                  .getElementById("ray")
-                  .addEventListener("click", function (evt) {
-                    newrelic.addPageAction("clickedRayBrownArticle");
-                  });
-              </script>
               from Jazz Steps.
             </p>
           </div>
@@ -1011,28 +947,5 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- My JavaScript -->
     <script src="js/mandy-main.min.js"></script>
-    <!-- Paint timings -->
-    <script>
-      function showPaintTimings() {
-        if (window.performance) {
-          let performance = window.performance;
-          let performanceEntries = performance.getEntriesByType("paint");
-          performanceEntries.forEach((performanceEntry, i, entries) => {
-            let to_seconds = performanceEntry.startTime / 1000;
-            newrelic.setCustomAttribute(performanceEntry.name, to_seconds);
-            console.log(
-              "The time to " +
-                performanceEntry.name +
-                " was " +
-                performanceEntry.startTime +
-                " seconds."
-            );
-          });
-        } else {
-          console.log("Performance timing isn't supported.");
-        }
-      }
-      showPaintTimings();
-    </script>
   </body>
 </html>
