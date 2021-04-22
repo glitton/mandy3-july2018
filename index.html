@@ -1,4 +1,4 @@
-<!-- Last update: April 22, 2021, removed performance, NR scripts -->
+<!-- Last update: April 22, 2021, removed performance box, removed all NR scripts -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,15 +49,6 @@
     />
     <!-- Custom CSS -->
     <link href="css/mandy.min.css" rel="stylesheet" />
-    <!-- Invoke TTI function -->
-    <script type="text/javascript" src="js/tti-polyfill.js"></script>
-    <script>
-      ttiPolyfill.getFirstConsistentlyInteractive().then((tti) => {
-        let ttinteractive = tti / 1000;
-        console.log("time to interactive is " + ttinteractive);
-        newrelic.setCustomAttribute("time-to-interactive", ttinteractive);
-      });
-    </script>
   </head>
   <body>
     <div class="brand">Mandy Flowers</div>
@@ -207,7 +198,6 @@
           </div>
         </div>
       </div>
-
       <!-- Performance -->
       <div id="performance" class="row">
         <div class="box">
@@ -225,7 +215,7 @@
               <hr class="visible-xs" />
             </div>
             <!-- Events Listing Here -->
-            <div class="col-md-8 events text-center">
+            <!-- <div class="col-md-8 events text-center">
               <h3 class="title-text text-center">Upcoming Events</h3>
               <p>
                 <strong>Saturdays through December 2019</strong><br />
@@ -241,10 +231,10 @@
                 B Street and Vine, 320 S. B Street, San Mateo, 94401,
                 (650)-347-8463
               </p>
-            </div>
+            </div> -->
             <!-- End of events listing -->
             <!-- Video Clips -->
-            <div class="col-lg-12 media">
+            <div class="col-md-4 media">
               <h3 class="title-text">Video Clips</h3>
               <div class="side-by-side">
                 <a
@@ -599,7 +589,12 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 text-center">
-            <p>Copyright &copy; Mandy Flowers 2017</p>
+            <p>
+              Copyright &copy; Mandy Flowers
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+            </p>
           </div>
           <div class="col-md-4 text-center">
             <img id="scroll-tip" src="img/scrolltip.jpg" alt="bass-scrolltip" />
