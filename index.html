@@ -1,4 +1,4 @@
-<!-- Last update: April 22, 2021.  Removed live performance info and all NR scripts-->
+<!-- Last update: Nov. 26, 2021, added cry me a river video-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -233,6 +233,20 @@
               </p>
             </div> -->
             <!-- End of events listing -->
+            <!-- Featured Video -->
+            <div class="col-md-8 events text-center">
+              <h3 class="title-text text-center">Features Video</h3>
+              <div class="side-by-side">
+                <a
+                  href="#cry"
+                  class="launch-modal"
+                  id="cry"
+                  data-modal-id="modal-video-cry"
+                >
+                  Cry Me A River
+                </a>
+              </div>
+            </div>
             <!-- Video Clips -->
             <div class="col-md-8 media">
               <h3 class="title-text">Video Clips</h3>
@@ -624,6 +638,45 @@
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
     <!-- Video Modals -->
+    <!-- Cry Me a River -->
+    <div class="modal" id="modal-video-cry" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!--
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="close-alone" aria-hidden="true">&times;</span>
+              </button>
+            -->
+          </div>
+          <div class="modal-body">
+            <div class="modal-video">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe
+                  class="alone"
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/qw68k7XWFBE"
+                  frameborder="0"
+                  awebkitallowfullscreen
+                  mozallowfullscreen
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="modal-footer-audio">
+                <button
+                  type="button"
+                  class="btn btn-default close-alone"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Alone Together -->
     <div class="modal" id="modal-video-alone" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
